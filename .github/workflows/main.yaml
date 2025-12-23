@@ -24,5 +24,5 @@ jobs:
         with: 
           context: .
           push: true
-          tags: quay.io/${{ secrets.QUAY_USERNAME }}/my-django-app:latest
+          tags: quay.io/bishesna/my-django-app:latest
 
