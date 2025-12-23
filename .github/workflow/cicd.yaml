@@ -1,0 +1,25 @@
+name: CI-CD pipeline
+
+on: 
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v2
+
+      - name: login
+        uses: docker/login-action@v2
+        with: 
+          username: ${{ secret.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+      - name: Build Docker image
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/DJANGO-NOTES-APP:latest .
+      
+      - name: Push Docker image
+        run: docker push ${{ secrets.Docker_USERNAME }}/DJANGO-NOTES-APP:latest 
