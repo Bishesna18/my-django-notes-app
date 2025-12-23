@@ -28,4 +28,4 @@ Install Nginx reverse proxy to make this application available
 
 `sudo apt-get update`
 `sudo apt install nginx`
-this is how we build cicd
+this is how we build cicd pipeline
